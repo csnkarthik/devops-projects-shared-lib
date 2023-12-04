@@ -1,3 +1,7 @@
-def call(){
-    sh 'mvn clear package sonar: sonar'
+def call(credentialsId){
+    
+    withSonarQubeEnv(credentialsId: credentialsId) {
+        sh 'mvn clear package sonar: sonar'
+    }
+    
 }
